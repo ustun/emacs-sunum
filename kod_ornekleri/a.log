@@ -1,0 +1,90 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  2 DEC 2014 08:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**a.tex
+(./a.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./a.aux)
+\openout1 = `a.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no § in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no Ÿ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ± in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ° in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no œ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no – in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ‡ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ± in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no Ÿ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ± in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no œ in font cmr10!
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./a.aux) ) 
+Here is how much of TeX's memory you used:
+ 206 strings out of 493117
+ 2164 string characters out of 6135433
+ 52909 words of memory out of 5000000
+ 3753 multiletter control sequences out of 15000+600000
+ 4245 words of font info for 16 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 23i,4n,17p,109b,107s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb>
+Output written on a.pdf (1 page, 24788 bytes).
+PDF statistics:
+ 16 PDF objects out of 1000 (max. 8388607)
+ 10 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,117 @@
+#+TITLE: Emacs'e Giriş
+#+AUTHOR: Üstün Özgür
+#+DATE: 2 Aralık 2014
+#+LANGUAGE:  tr
+#+OPTIONS: toc:nil
+
+
+* Emacs
+#+BEGIN_QUOTE
+Emacs is the extensible, customizable, self-documenting real-time display
+editor.
+#+END_QUOTE
+
+** Extensible
+** Customizable
+** Self-documenting
+
+* Tarihçe
+
+- 1970'lerde Richard Stallman tarafından yazıldı
+- James Gosling tarafından ilk Unix uyarlaması
+- 1980'lerde GNU projesi ve GNU Emacs
+- Isletim sistemi ile iletişimi sağlayan küçük C çekirdeği
+- Çekirdeğin üzerinde çalışan Emacs Lisp motoru
+
+[[./images/stall.jpg]]
+
+* Emacs bir metin editörü değildir
+
+- Emacs bir programlama ortamıdır
+#+BEGIN_QUOTE
+GNU Emacs is sometimes called an "extensible editor", but it does
+much more than provide editing capabilities.  It is better to refer to
+Emacs as an "extensible computing environment".  However, that phrase
+is quite a mouthful.  It is easier to refer to Emacs simply as an
+editor.
+#+END_QUOTE
+
+- Komutlar (command), fonksiyon ve değişkenler
+- M-x : Emacs'ın en önemli komutu
+
+* Giriş: Bir metin editörünün temel görevleri
+
+- Dosya ve pencere yönetimi
+- Dosyanın içeriğinini değiştirme
+- Dosyanın içerisinde hareket etme
+- Dosyalar arasında hareket etme
+- Dosya üzerinde bir işlem yapma (compile, spell-check)
+
+* User Interface
+#+ATTR_LATEX: :width 5cm
+[[./images/emacs.png]]
+
+* Temel Kavramlar
+
+- Frame (pencere)
+- window (bölme)
+- buffer (metin -- dosya olabilir ya da olmayabilir
+- mini-buffer ve echo area (en alttaki alan)
+
+* Demo
+
+- find-file
+- split-window-vertically
+- split-window-horizontally
+- delete-other-windows
+- dired
+- kill-buffer
+- switch-to-buffer
+- insert
+- beginning-of-line
+- end-of-line
+- previous-line
+- forward-line
+- upcase-region
+- undo
+
+* Temel Komutlar
+
+- Dosya açma/kapama
+  - C-x C-f : Find file
+  - C-x C-b : Açık dosyalar ve bufferlar
+  - C-x C-s : Kaydetme
+  - C-x C-k : Kapatma
+
+- Pencere yönetimi
+  - C-x 2 : Yatay olarak ikiye bölme
+  - C-x 3:  Dikey olarak ikiye bölme
+  - C-x 1:  Diğer bölmeleri kapatma
+
+- Hareket tuslari:
+  - C-a/e/f/b: Satir basi/sonu/bir harf ileri/bir harf geri
+  - M-a/e/f/b: Para basi/sonu/bir kelime ileri/bir kelime geri
+
+* Nasıl Öğrenebilirsiniz?
+
+- Self-documenting
+- C-h t : Emacs tutorial
+- C-h r : Emacs manual
+- C-h i : Emacs Lisp Info
+- Emacs Prelude
+
+* Özelleştirme
+
+- init dosyasi
+- M-x customize
+- M-x customize-variable
+- M-x define-variable
+- M-x define-function
+- M-x find-function
+- M-x find-library
+
+* Sorular
+
+- @ustunozgur
+- ustun@ustunozgur.com
+- github.com/ustun/emacs-sunum

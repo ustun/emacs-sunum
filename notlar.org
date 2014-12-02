@@ -1,0 +1,322 @@
+#+title: Emacs'e Giris
+
+* Tarihce
+- The extensible, customizable, self-documenting, real-time display editor
+- 1976 yilinda Richard Stallman ve Guy Steele
+- Editor MACros
+- Vi ile birlikte en eski iki editor
+
+* Temel Kullanim
+
+** Temel Kavramlar
+
+   Frame - pencere
+   Window - pencere icindeki bolme
+   Buffer - tampon. gecici ya da kalici metin. acik dosya ya da metin ciktisi. (ornegin kod ciktisi)
+   Echo area: En alttaki alan
+   Mini-buffer: Echo area'da kullanici input'u beklendigi anda gosterilen alan
+
+** Ctrl ve Alt tuslari ile tus kombinasyonlari
+
+   Ctrl-x ya da C-x
+   Alt-x (Cmd-x) ya da M-x (Meta tusu)
+   C-x C-g: Once Ctrl-x sonra Ctrl-g
+   C-u 5 C-k: Once C-u sonra 5 sonra C-k gibi
+
+** Cursor hareketleri
+
+   - f forward (ileri)
+   - b backward (geri)
+
+   - C-f Ctrl-f : Bir karakter ileri
+   - C-b Ctrl-b : Bir karakter geri
+   - M-f: Bir kelime ileri
+   - M-b: Bir kelime geri
+
+   - C-v: Page down
+   - M-v: Page up
+
+   - M->: En sona git
+   - M-<: En basa git
+
+   - C-s: Search forward
+   - C-r: Search backward
+
+   - C-g: Cancel
+
+   - C-d: Delete char
+   - M-d: Delete word
+   - M-Backspace: Backward delete word
+
+** Cut-Copy-Paste
+
+Emacs'in bu konudaki kavramlari da biraz farklidir.
+
+- Cut   -> Kill (C-w)
+- Copy  -> Copy (M-w)
+- Paste -> Yank (C-y)
+
+Secim yapmak icin: Ctrl-Space daha sonra istenilen yere kadar git ve
+C-w. Daha sonra istenen yere git ve C-y ile yapistir.
+
+Satir sonuna kadar secim yapmadan kesmek icin: C-k
+
+Kesilen her sey kill-ring denen yere gider, clipboard manager gibi dusunulebilir.
+
+
+** Basit dosya acma/kapama
+
+   - C-x C-f: Find file
+
+   - C-x C-b: List Buffers. Acik dosyalari goruntule
+
+   - C-x k: Kill buffer. Buffer'i kapat.
+
+   - C-x C-s: Save buffer
+
+   - C-x d: Dired mode. Klasoru goruntuler.
+
+** Pencere yonetimi
+
+   - C-x 2: Yatay olarak ikiye bol (su anki window'u iki window'a bol)
+
+   - C-x 3: Dikey olarak ikiye bol
+
+   - C-x 1: Diger window'lari kapat
+
+   - C-x 0: Mevcut window'u kapat
+
+   - C-x o: Other Window. Diger window'a gecis yap.
+
+** Modlar
+
+- Temel modlar: Genelde dillere bagli modlar (kisayollar, syntax
+  highlighting)
+
+- Yardimci modlar: Birden fazla dilde yararli olabilecek fonksiyonlar
+  (ornegin show-paren-mode eslesen parantezi gosterir.)
+
+** Demo
+
+* Emacs'in Farki
+
+Buraya kadar gorduklerimiz herhangi bir editorde yapabilecegimiz
+seyler. Bu kisimda emacs'in neden diger editorlerden daha guclu
+oldugunu gorecegiz. Emacs'in en onemli yani extensible olmasidir, yani
+kullanici, emacs'i istedigi gibi programlayarak kendine gore
+ozellestirebilir. Bunun sebebi emacs'in emacs lisp dili ile
+gelistirebilmesidir. Emacs'le birlikte gelen bircok ozellik de bu dil
+ile yazilmistir. (performans gerektiren kisimlar c dili ile
+yazilmistir.
+
+** Emacs Lisp Ozeti
+
+- Lisp: list processing
+- Neredeyse tek syntax liste
+- Ic ice listeler tanimlanabilir
+- (eylem arg1 arg2 ... argN)
+- Genel olarak: (fonksiyon-adi arg1 arg2 ... argN)
+
+** Emacs Lisp Ornekleri
+
+- (+ 1 2) => 3
+- (+ (* 3 4) (* 5 6)) => 42
+- (set 'isim "Ustun") => set
+- (setq isim "Ustun") => set quoted
+- (defun topla (a b)  (+ a b))
+- (topla 3 4) => 7
+- (defun carp  (a b)  (* a b))
+- (carp 5 6) => 30
+- (funcall (lambda (a b) (* a b)) 4 5) => Lambda (isimsiz (anonim) fonksiyon)
+- (message "Hello World")
+- (message "Hello World %s" "GNUBilkent")
+
+** Fonksiyonlar ve Komutlar
+
+- Aslinda her tus bir komuta (command) baglidir. Ornegin C-x C-s
+tuslarina bastigimizda save-buffer isimli komut calistirilir.
+
+- Bir tusun hangi komuta bagli oldugunu C-h k (describe-key) ile
+gorebiliriz.
+
+- Ornegin C-h k daha sonra C-x C-s tuslarina bastigimizda save-buffer
+komutu calistirilir.
+
+- Tum komutlara M-x ile ulasabiliriz.
+
+- M-x find-file
+
+- M-x save-buffer
+
+** Yeni Komut Eklemek
+
+- Yeni komutlar ve fonksiyonlar ekleyebiliriz.
+
+- Ornegin, bir satir geri gidip bos satir ekleyen bir komut yazalim.
+
+- Ingredients:
+  - Bir satir ileri gitme: (forward-line N)
+  - Bir satir geri gitme: (forward-line -1)
+  - Bos satir ekleme: (newline)
+
+- Bu ikisini kullanarak yeni bir fonksiyon yazalim:
+
+(defun bos-satir-ekle ()
+    (forward-line -1)
+    (newline))
+
+- Bu haliyle bir fonksiyon yarattik, ancak bu bir komut degil. Komut
+  olmasi icin (interactive) cagrisini eklememiz gerek.
+
+  (defun bos-satir-ekle ()
+  (interactive)
+  (forward-line -1)
+  (newline))
+
+- Simdi M-x yaptigimizda bos-satir-ekle komutunu calistirabiliriz.
+
+** Komutumuza Kisayol Eklemek
+
+- Temelde iki turlu kisayol eklenebilir: Global ve aktif moda (dosya turune gore).
+
+- (global-set-key (kbd "C-o") 'bos-satir-ekle)
+
+- Artik Ctrl-o ile komutumuzu calistirabiliriz.
+
+- Konumumuzu korumak icin her seyi save-excursion (seyahati kaydet) ile wrap edelim.
+#+BEGIN_SRC emacs_lisp
+  (defun bos-satir-ekle ()
+  (interactive)
+(save-excursion
+(forward-line -1)
+  (newline)))
+#+END_SRC
+
+** Degisiklikleri Kaydetmek
+- Home klasorunde .emacs.d klasoru icinde init.el (eskiden direk home icinde .emacs kullanilirdi)
+- `C-x C-e` ile son fonksiyonu yeniden tanimlayabiliriz.
+- `C-M-x` ile fonksiyon sonuna gitmeden yeniden tanimlayabiliriz.
+
+** Yardim Komutlarir
+
+1. describe-function
+2. describe-key
+3. describe-mode
+4. describe-k \gamma
+5. apropos: arama
+
+6. C-h t: Tutorial
+7. C-h r: Manual
+8. C-h i: Info (Emacs'in man pageleri gibi. Manual'a buradan da erisilebilir
+
+9. find-function
+10. C-h S (info-lookup)
+11. find-library
+12. elisp-index-search
+
+* Eklenti (Mod) Yukleme
+
+** Paket yoneticisi
+
+Emacs 24'te paket yoneticisi entegre gelmekte, ancak ana depo daha az
+paket icerdigi icin ekstra bir depo adresi eklemeli.
+#+BEGIN_SRC
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+#+END_SRC
+
+Daha sonra `M-x package-list-packages`
+
+Paketleri I (install) ile sec, daha sonra X (execute) ile yukle.
+
+http://melpa.org adresinden tum paketler incelenebilir.
+
+** En Populer Paketler
+
+
+
+- ido mode
+  - kolay dosya acmak icin
+  - flexible matching icin: (setq ido-enable-flex-matching t)
+  - ido-ubiquitous
+  - ido-vertical-mode
+
+- tema secimi: (load-theme 'leuven) ya da M-x load-theme
+
+- font secimi: M-x customize-face ENTER default ENTER
+  - daha sonra save for future sessions
+
+- windmove: Shift+yon tuslari ile pencereler arasi gecis
+
+- smex: M-x icin ido benzeri ozellik.
+
+- helm: ido+smex alternatifi, daha guclu.
+
+- recentf-mode
+
+- projectile-mode
+
+- magit: git icin
+
+- dired
+
+- org-mode: Not tutma, rapor hazirlama, planlama yapma
+
+- flycheck: Aninda syntax checking.
+
+- autocomplete-mode: Autocomplete mode
+
+- imenu ve idomenu
+
+- yasnippet: Snippetler
+
+- M-x list-packages
+
+- Butun bunlarin otomatik olarak kuruldugu bir depo icin emacs-prelude
+  kullanilabilir.
+
+** Diger ilginc paketler
+
+- eww: Web Browser
+
+- gnus: Mail reader
+
+- erc: Chat reader
+
+- occur
+
+- jedi
+
+- ag
+
+- emmet
+
+- deft
+
+- hl-line-mode
+
+- visual-line-mode
+
+- helm
+
+- fringe-mode
+
+- customize-variable
+
+- describe-variable
+
+- eldoc-mode
+
+** Extra
+
+#+BEGIN_LaTeX
+x^2 + 1 = \sum_{i=0}{x}
+#+END_LaTeX
+
+
+| x    |   y |
+|------+-----|
+| 3    |   4 |
+| ssss | 333 |
+|      |     |
