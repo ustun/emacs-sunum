@@ -141,9 +141,3 @@ Usually used for side effects.
 
 ;; to see the value of buffer local variables, type M-: and enter the variable name
 ;; M-: executes eval-expression
-
-
-
-
-
-
